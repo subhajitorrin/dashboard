@@ -285,7 +285,7 @@ const Sidepanel = () => {
           ))}
         </ul>
       </div>
-      <div className="">
+      <div className="mt-[5rem]">
         <div
           style={{ background: 'linear-gradient(110deg, #eaabf0, #4623e9)' }}
           className="mx-[1.75rem] flex h-[9.375rem] w-[15.625rem] flex-col rounded-[20px] pl-[1.5rem] pr-[1.438rem] pt-[1.625rem] text-center text-white">
