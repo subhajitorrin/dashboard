@@ -205,12 +205,12 @@ const ITEMS = [
 const Sidepanel = () => {
   const [active, setActive] = useState(2);
   return (
-    <div className="flex w-[306px] flex-col justify-between px-6 py-8">
+    <div className="flex w-[19.125rem] flex-col justify-between">
       <div className="flex flex-col">
         {/* sidebar heading */}
-        <div className="flex items-center">
+        <div className="ml-[1.75rem] mt-[2.25rem] flex w-fit items-center">
           <svg
-            className="mr-2"
+            className="mr-[0.5rem]"
             width="37"
             height="37"
             viewBox="0 0 37 37"
@@ -225,25 +225,29 @@ const Sidepanel = () => {
               fill="black"
             />
           </svg>
-          <h1 className="text-[26px] font-bold">Dashboard</h1>
-          <p className="relative top-[5.8px] ml-1 text-[10px] font-bold text-[#838383]">
+          <h1 className="mr-[0.25rem] w-[150px] text-[26px] font-[600] leading-[2.438rem]">
+            Dashboard
+          </h1>
+          <p className="relative top-[5.8px] text-[0.625rem] font-[400] text-[#838383]">
             v.01
           </p>
         </div>
         {/* sidebar items */}
-        <ul className="mt-7 flex flex-col items-start gap-4">
+        <ul className="mt-[3.5rem] flex flex-col items-start gap-[1.125rem]">
           {ITEMS.map((item, index) => (
             <Button
               style={{
                 backgroundColor: index === active ? '#5932EA' : '',
               }}
               key={index}
-              className="flex h-[46px] w-full items-center justify-between rounded-[8px] px-4 text-[#9197b3]">
+              className="mx-[1.75rem] flex h-[2.875rem] w-[15.625rem] items-center justify-between rounded-[8px] py-[0.688rem] pl-[0.688rem] pr-[0.5rem] text-[#9197b3]">
               <div
                 style={{ color: index === active ? '#fff' : '' }}
-                className="flex items-center gap-4 text-[14px]">
+                className="flex items-center text-[14px]">
                 {item.icon}
-                {item.name}
+                <span className="ml-[0.875rem] text-[0.875rem] font-[500]">
+                  {item.name}
+                </span>
               </div>
               {index !== 0 &&
                 (index === active ? (
@@ -284,12 +288,14 @@ const Sidepanel = () => {
       <div className="">
         <div
           style={{ background: 'linear-gradient(110deg, #eaabf0, #4623e9)' }}
-          className="flex h-[150px] w-full flex-col items-center justify-center gap-5 rounded-[20px] px-4 text-center text-white">
-          <p className="text-[14px] font-bold">
-            Upgrade to PRO to get <br /> access all Features!
+          className="mx-[1.75rem] flex h-[9.375rem] w-[15.625rem] flex-col rounded-[20px] pl-[1.5rem] pr-[1.438rem] pt-[1.625rem] text-center text-white">
+          <p className="mb-[1.25rem] text-center text-[0.875rem] font-[600] leading-[1.313rem] tracking-[0.01em]">
+            Upgrade to PRO to get access all Features!
           </p>
-          <Button className="w-[203px] rounded-[20px] bg-white font-bold text-[#4925E9] hover:bg-[#ffffffe4]">
-            Get Pro Now!
+          <Button className="mb-[1.375rem] flex h-[2.5rem] w-[12.688rem] items-center justify-center rounded-[20px] bg-[#FFFFFF] hover:bg-[#fffffff1]">
+            <p className="font-poppins decoration-skip-ink-none text-center text-sm font-semibold leading-[21px] tracking-[0.01em] text-[#4925E9]">
+              Get Pro Now!
+            </p>
           </Button>
         </div>
         <Profile />

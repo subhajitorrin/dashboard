@@ -4,8 +4,8 @@ import Image from 'next/image';
 
 const Profile = () => {
   return (
-    <div className="mt-8 flex w-full items-center justify-between">
-      <div className="flex gap-3">
+    <div className="mb-[4.75rem] mt-[2.875rem] flex w-full items-center justify-between px-[1.75rem]">
+      <div className="flex">
         <Image
           src={profile}
           alt="profile"
@@ -13,9 +13,11 @@ const Profile = () => {
           width={42}
           className="rounded-full"
         />
-        <div className="">
-          <h2 className="text-[14px] font-[500]">Evano</h2>
-          <p className="text-[12px] font-[500] text-[#757575]">
+        <div className="ml-[0.75rem]">
+          <h2 className="text-[0.875rem] font-[400] leading-[1.313rem] tracking-[0.01em]">
+            Evano
+          </h2>
+          <p className="text-[0.75rem] font-[400] leading-[1.125rem] text-[#757575]">
             Project Manager
           </p>
         </div>
