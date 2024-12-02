@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const Profile = () => {
   return (
-    <div className="mb-[4.75rem] mt-[2.875rem] flex w-full items-center justify-between px-[1.75rem]">
+    <div className="mb-[2.5rem] mt-[2.875rem] flex w-full items-center justify-between px-[1.75rem]">
       <div className="flex">
         <Image
           src={profile}
