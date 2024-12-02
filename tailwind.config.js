@@ -13,6 +13,9 @@ module.exports = {
       },
     },
     extend: {
+      placeholderColor: {
+        'custom-color': '#B5B7C0',
+      },
       fontFamily: {
         sans: ['var(--font-sans)', ...fontFamily.sans],
         display: ['var(--font-display)', ...fontFamily.serif],
