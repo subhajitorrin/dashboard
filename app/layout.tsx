@@ -1,7 +1,6 @@
 import '@/styles/globals.css';
 import { Metadata } from 'next';
 
-import { ThemeProvider } from '@/components/theme-provider';
 import { seoMetaData } from '@/config/seo-meta-data';
 import { fontMono, fontSans } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
@@ -32,9 +31,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             'min-h-screen bg-background font-sans antialiased',
             fontSans.variable,
           )}>
-          <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-            {children}
-          </ThemeProvider>
+          {children}
         </body>
       </html>
     </>

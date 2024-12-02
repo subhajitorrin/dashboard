@@ -1,9 +1,14 @@
-import React from 'react'
+import Mainbody from '@/components/dashboard/main-body/main-body';
+import Sidepanel from '@/components/dashboard/side-panel/side-panel';
+import React from 'react';
 
 const Page = () => {
   return (
-    <div>Page</div>
-  )
-}
+    <div className="flex h-screen w-full">
+      <Sidepanel />
+      <Mainbody />
+    </div>
+  );
+};
 
-export default Page
+export default Page;
