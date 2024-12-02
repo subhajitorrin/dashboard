@@ -115,7 +115,7 @@ const StatItem = ({
 
 export default function StatsCard() {
   return (
-    <div className="flex justify-between rounded-[30px] bg-white pb-[2.063rem] pl-[3.125rem] pr-[5.5rem] pt-[1.938rem]">
+    <div className="flex justify-between rounded-[30px] bg-white pb-[2.063rem] pl-[3.125rem] pr-[5.5rem] pt-[1.938rem] shadow-[0px_10px_60px_0px_#E2ECF980]">
       <StatItem
         icon={
           <Image

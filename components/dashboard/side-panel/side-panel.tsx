@@ -205,7 +205,7 @@ const ITEMS = [
 const Sidepanel = () => {
   const [active, setActive] = useState(2);
   return (
-    <div className="flex w-[19.125rem] flex-col justify-between">
+    <div className="flex w-[19.125rem] flex-col justify-between shadow-[0px_10px_60px_0px_#E2ECF980]">
       <div className="flex flex-col">
         {/* sidebar heading */}
         <div className="ml-[1.75rem] mt-[2.25rem] flex w-fit items-center">
