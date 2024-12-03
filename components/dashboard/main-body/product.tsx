@@ -49,13 +49,25 @@ export default function Product() {
   const [isLoading, setIsLoading] = useState(true);
   const [filteredList, setFilteredList] = useState<CustomerInfo[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [sortBy, setSortBy] = useState('newest');
 
   useEffect(() => {
-    const updatedList = customerList.filter((customer) => {
-      return customer.name.toLowerCase().includes(searchTerm.toLowerCase());
+    let result = [...customerList];
+
+    if (searchTerm) {
+      result = result.filter((customer) =>
+        customer.name.toLowerCase().includes(searchTerm.toLowerCase()),
+      );
+    }
+
+    result.sort((a, b) => {
+      const dateA = new Date(a.createdAt).getTime();
+      const dateB = new Date(b.createdAt).getTime();
+      return sortBy === 'newest' ? dateB - dateA : dateA - dateB;
     });
-    setFilteredList(updatedList);
-  }, [customerList, searchTerm]);
+
+    setFilteredList(result);
+  }, [customerList, searchTerm, sortBy]);
 
   useEffect(() => {
     async function handleGetCustomers() {
@@ -120,13 +132,15 @@ export default function Product() {
               <span className="text-nowrap text-[0.75rem] text-[#7E7E7E]">
                 Short by :&nbsp;
               </span>
-              <Select defaultValue="newest">
+              <Select
+                defaultValue={sortBy}
+                onValueChange={(value) => setSortBy(value)}>
                 <SelectTrigger className="border-none p-0 pr-[0.75rem] text-left text-[0.75rem] font-semibold leading-[1.125rem] tracking-[-0.01em]">
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="newest">Newest</SelectItem>
-                  <SelectItem value="oldest">Oldest</SelectItem>
+                <SelectContent className='rounded-[8px] bg-white'>
+                  <SelectItem value="newest" className='cursor-pointer'>Newest</SelectItem>
+                  <SelectItem value="oldest" className='cursor-pointer'>Oldest</SelectItem>
                 </SelectContent>
               </Select>
             </div>

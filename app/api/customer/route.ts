@@ -19,7 +19,11 @@ export async function POST(req: Request) {
 
 export async function GET(req: Request) {
     try {
-        const customers = await prisma.customer.findMany();
+        const customers = await prisma.customer.findMany({
+            orderBy: {
+                createdAt: 'asc',
+            },
+        });
         return NextResponse.json(customers, { status: 200 });
     } catch (error) {
         console.log(error);
