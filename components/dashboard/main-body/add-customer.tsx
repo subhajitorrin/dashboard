@@ -20,14 +20,65 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import useCustomerStore from '@/lib/store/useCustomerStore';
+
+const COUNTRY_LIST = [
+  'Australia',
+  'Brazil',
+  'Canada',
+  'China',
+  'Curaçao',
+  'Egypt',
+  'France',
+  'Germany',
+  'Greece',
+  'India',
+  'Iran',
+  'Israel',
+  'Japan',
+  'Kiribati',
+  'Mexico',
+  'New Zealand',
+  'Nigeria',
+  'Réunion',
+  'Russia',
+  'South Africa',
+  'South Korea',
+  'Spain',
+  'United States',
+  'Åland Islands',
+];
 
 export default function AddCustomerModal() {
+  const { addCustomer } = useCustomerStore();
   const [open, setOpen] = useState(false);
+  const [name, setName] = useState('');
+  const [company, setCompany] = useState('ABC Company');
+  const [phone, setPhone] = useState('1234567890');
+  const [email, setEmail] = useState('testing@gmail.com');
+  const [country, setCountry] = useState('India');
+  const [status, setStatus] = useState('active');
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission here
-    setOpen(false);
+    const customer = {
+      name,
+      company,
+      phone,
+      email,
+      country,
+      status,
+    };
+    try {
+      setIsLoading(true);
+      await addCustomer(customer);
+      setName('');
+      setOpen(false);
+    } catch (error) {
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -37,7 +88,7 @@ export default function AddCustomerModal() {
           Add customer
         </Button>
       </DialogTrigger>
-      <DialogContent className="bg-white sm:max-w-[425px]">
+      <DialogContent className="rounded-xl bg-white sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Add New Customer</DialogTitle>
           <DialogDescription>
@@ -51,7 +102,10 @@ export default function AddCustomerModal() {
               id="name"
               name="name"
               placeholder="Enter customer name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               required
+              className="rounded-[8px] border border-[#00000028]"
             />
           </div>
           <div className="grid gap-2">
@@ -60,7 +114,10 @@ export default function AddCustomerModal() {
               id="company"
               name="company"
               placeholder="Enter company name"
+              value={company}
+              onChange={(e) => setCompany(e.target.value)}
               required
+              className="rounded-[8px] border border-[#00000028]"
             />
           </div>
           <div className="grid gap-2">
@@ -69,9 +126,11 @@ export default function AddCustomerModal() {
               id="phone"
               name="phone"
               type="tel"
-              placeholder="(xxx) xxx-xxxx"
-              pattern="$$\d{3}$$ \d{3}-\d{4}"
+              placeholder="Enter phone number"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
               required
+              className="rounded-[8px] border border-[#00000028]"
             />
           </div>
           <div className="grid gap-2">
@@ -81,30 +140,46 @@ export default function AddCustomerModal() {
               name="email"
               type="email"
               placeholder="Enter email address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
+              className="rounded-[8px] border border-[#00000028]"
             />
           </div>
           <div className="grid gap-2">
             <Label htmlFor="country">Country</Label>
-            <Select name="country" required>
-              <SelectTrigger id="country">
+            <Select
+              name="country"
+              onValueChange={(value) => setCountry(value)}
+              value={country}
+              required>
+              <SelectTrigger
+                id="country"
+                className="rounded-[8px] border border-[#00000028]">
                 <SelectValue placeholder="Select country" />
               </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="us">United States</SelectItem>
-                <SelectItem value="br">Brazil</SelectItem>
-                <SelectItem value="ir">Iran</SelectItem>
-                <SelectItem value="il">Israel</SelectItem>
-                <SelectItem value="ki">Kiribati</SelectItem>
-                <SelectItem value="re">Réunion</SelectItem>
-                <SelectItem value="cw">Curaçao</SelectItem>
-                <SelectItem value="ax">Åland Islands</SelectItem>
+              <SelectContent className="bg-white">
+                {COUNTRY_LIST.map((item, index) => {
+                  return (
+                    <SelectItem
+                      key={index}
+                      value={item}
+                      className="cursor-pointer">
+                      {item}
+                    </SelectItem>
+                  );
+                })}
               </SelectContent>
             </Select>
           </div>
           <div className="grid gap-2">
             <Label>Status</Label>
-            <RadioGroup defaultValue="active" name="status" required>
+            <RadioGroup
+              defaultValue="active"
+              name="status"
+              value={status}
+              onValueChange={(value) => setStatus(value)}
+              required>
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="active" id="active" />
                 <Label htmlFor="active" className="text-sm font-normal">
@@ -120,7 +195,12 @@ export default function AddCustomerModal() {
             </RadioGroup>
           </div>
           <div className="flex justify-end">
-            <Button type="submit">Add Customer</Button>
+            <Button
+              disabled={isLoading}
+              type="submit"
+              className="min-w-[150px] rounded-[10px] bg-[#5932EA] text-white hover:bg-[#5630df]">
+              {isLoading ? 'Loading...' : 'Add Customer'}
+            </Button>
           </div>
         </form>
       </DialogContent>
