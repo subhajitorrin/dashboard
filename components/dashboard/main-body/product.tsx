@@ -18,6 +18,15 @@ import {
 import { ChevronLeft, ChevronRight, Search } from 'lucide-react';
 import AddCustomerModal from './add-customer';
 
+const TABLE_HEAD = [
+  'Customer Name',
+  'Company',
+  'Phone Number',
+  'Email',
+  'Country',
+  'Status',
+];
+
 export default function Product() {
   return (
     <div className="mt-[2.5rem] rounded-[30px] bg-white pb-[2.5rem] pl-[2.375rem] pr-[2.5rem] pt-[1.875rem] shadow-[0px_10px_60px_0px_#E2ECF980]">
@@ -82,35 +91,50 @@ export default function Product() {
           </div>
         </div>
 
-        <div className="rounded-lg border">
+        <div className="rounded-lg">
           <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="text-sm">Customer Name</TableHead>
-                <TableHead className="text-sm">Company</TableHead>
-                <TableHead className="text-sm">Phone Number</TableHead>
-                <TableHead className="text-sm">Email</TableHead>
-                <TableHead className="text-sm">Country</TableHead>
-                <TableHead className="text-sm">Status</TableHead>
+            <TableHeader className="">
+              <TableRow className="border-b">
+                {TABLE_HEAD.map((item, index) => {
+                  return (
+                    <TableHead
+                      key={index}
+                      className="text-left text-[0.875rem] font-medium leading-[1.3125rem] tracking-[-0.01em] text-[#B5B7C0]">
+                      {item}
+                    </TableHead>
+                  );
+                })}
               </TableRow>
             </TableHeader>
-            <TableBody>
+            <TableBody className="border-b">
               {customers.map((customer) => (
-                <TableRow key={customer.email}>
-                  <TableCell>{customer.name}</TableCell>
-                  <TableCell>{customer.company}</TableCell>
-                  <TableCell>{customer.phone}</TableCell>
-                  <TableCell>{customer.email}</TableCell>
-                  <TableCell>{customer.country}</TableCell>
-                  <TableCell>
-                    <span
-                      className={`rounded-full px-3 py-1 text-xs ${
+                <TableRow
+                  key={customer.email}
+                  className="border-b py-[1.25rem]">
+                  <TableCell className="text-left text-[0.875rem] font-medium leading-[1.3125rem] tracking-[-0.01em] text-[#292D32]">
+                    {customer.name}
+                  </TableCell>
+                  <TableCell className="text-left text-[0.875rem] font-medium leading-[1.3125rem] tracking-[-0.01em] text-[#292D32]">
+                    {customer.company}
+                  </TableCell>
+                  <TableCell className="text-left text-[0.875rem] font-medium leading-[1.3125rem] tracking-[-0.01em] text-[#292D32]">
+                    {customer.phone}
+                  </TableCell>
+                  <TableCell className="text-left text-[0.875rem] font-medium leading-[1.3125rem] tracking-[-0.01em] text-[#292D32]">
+                    {customer.email}
+                  </TableCell>
+                  <TableCell className="text-left text-[0.875rem] font-medium leading-[1.3125rem] tracking-[-0.01em] text-[#292D32]">
+                    {customer.country}
+                  </TableCell>
+                  <TableCell className="text-left text-[0.875rem] font-medium leading-[1.3125rem] tracking-[-0.01em] text-[#292D32]">
+                    <div
+                      className={`${
                         customer.status === 'Active'
-                          ? 'bg-emerald-100 text-emerald-700'
-                          : 'bg-red-100 text-red-700'
-                      }`}>
+                          ? ' border-[#00B087]  bg-[#16C09861] text-[#008767]'
+                          : ' border-[#DF0404] bg-[#FFC5C5] text-[#DF0404]'
+                      }h-[1.813rem] w-[5.25rem] rounded-[4px] border-[2px] py-[4px] text-center`}>
                       {customer.status}
-                    </span>
+                    </div>
                   </TableCell>
                 </TableRow>
               ))}
@@ -118,8 +142,8 @@ export default function Product() {
           </Table>
         </div>
 
-        <div className="flex items-center justify-between">
-          <p className="text-sm text-muted-foreground">
+        <div className="mt-[1.875rem] flex items-center justify-between">
+          <p className="text-left text-[0.875rem] font-medium leading-[1.3125rem] tracking-[-0.01em] text-[#B5B7C0]">
             Showing data 1 to 8 of 256K entries
           </p>
           <div className="flex items-center gap-1">
