@@ -16,37 +16,69 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { ChevronLeft, ChevronRight, Search } from 'lucide-react';
+import AddCustomerModal from './add-customer';
 
 export default function Product() {
   return (
-    <div className="mt-[2.5rem] rounded-[30px] bg-white pl-[2.375rem] pr-[2.5rem] shadow-[0px_10px_60px_0px_#E2ECF980]">
-      <div className="space-y-4">
-        <div>
-          <h1 className="text-2xl font-semibold">All Customers</h1>
-          <p className="text-sm text-emerald-500">Active Members</p>
-        </div>
+    <div className="mt-[2.5rem] rounded-[30px] bg-white pb-[2.5rem] pl-[2.375rem] pr-[2.5rem] pt-[1.875rem] shadow-[0px_10px_60px_0px_#E2ECF980]">
+      <div className="">
+        {/* Header */}
+        <div className="mb-[40px] flex items-end justify-between">
+          <div>
+            <h1 className="text-left text-[1.375rem] font-semibold leading-[2.0625rem] tracking-[-0.01em]">
+              All Customers
+            </h1>
+            <p className="mt-[0.438rem] text-left text-[0.875rem] font-normal leading-[1.3125rem] tracking-[-0.01em] text-[#16C098]">
+              Active Members
+            </p>
+          </div>
 
-        <div className="flex items-center justify-between">
-          <div className="relative">
-            <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
-            <Input placeholder="Search" className="w-[300px] pl-8" />
+          <div className="flex h-[2.375rem] w-[13.5rem] items-center rounded-[12px] bg-[#F9FBFF] px-[0.5rem] py-[0.438rem]">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                stroke="#7E7E7E"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M21 21L16.65 16.65"
+                stroke="#7E7E7E"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <Input
+              type="text"
+              placeholder="Search"
+              className="placeholder:text-custom-color ml-[0.5rem] h-[1.313rem] border-none bg-transparent pl-0"
+            />
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-muted-foreground">Short by:</span>
+            <div className="flex items-center justify-center rounded-[10px] bg-[#F9FBFF] pl-[0.938rem]">
+              <span className="text-nowrap text-[0.75rem] text-[#7E7E7E]">
+                Short by :&nbsp;
+              </span>
               <Select defaultValue="newest">
-                <SelectTrigger className="w-[100px]">
+                <SelectTrigger className="border-none p-0 pr-[0.75rem] text-left text-[0.75rem] font-semibold leading-[1.125rem] tracking-[-0.01em]">
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="">
                   <SelectItem value="newest">Newest</SelectItem>
                   <SelectItem value="oldest">Oldest</SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
-            <Button>Add customer</Button>
+            <AddCustomerModal />
           </div>
         </div>
 
