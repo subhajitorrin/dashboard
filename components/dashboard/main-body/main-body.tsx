@@ -5,7 +5,7 @@ import Product from './product';
 
 const Mainbody = () => {
   return (
-    <div className="mb-[2.5rem] h-full w-full flex-1 bg-[#f9faff] pl-[4.438rem] pr-[5.938rem] pt-[2.5rem]">
+    <div className="h-full w-full flex-1 overflow-y-auto bg-[#f9faff] py-[2.5rem] pl-[4.438rem] pr-[5.938rem]">
       <div className="mb-[2.438rem] flex items-center justify-between">
         <h2 className="text-left text-[1.5rem] font-medium leading-[2.25rem] text-[#000000]">
           Hello Evano 👋🏼,

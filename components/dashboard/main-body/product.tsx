@@ -17,6 +17,7 @@ import {
 } from '@/components/ui/select';
 import { ChevronLeft, ChevronRight, Search } from 'lucide-react';
 import AddCustomerModal from './add-customer';
+import { TablePagination } from './pagination';
 
 const TABLE_HEAD = [
   'Customer Name',
@@ -126,13 +127,13 @@ export default function Product() {
                   <TableCell className="text-left text-[0.875rem] font-medium leading-[1.3125rem] tracking-[-0.01em] text-[#292D32]">
                     {customer.country}
                   </TableCell>
-                  <TableCell className="text-left text-[0.875rem] font-medium leading-[1.3125rem] tracking-[-0.01em] text-[#292D32]">
+                  <TableCell className="text-left text-[0.875rem] font-medium leading-[1.3125rem] tracking-[-0.01em]">
                     <div
                       className={`${
                         customer.status === 'Active'
                           ? ' border-[#00B087]  bg-[#16C09861] text-[#008767]'
                           : ' border-[#DF0404] bg-[#FFC5C5] text-[#DF0404]'
-                      }h-[1.813rem] w-[5.25rem] rounded-[4px] border-[2px] py-[4px] text-center`}>
+                      } h-[1.813rem] w-[5.25rem] rounded-[4px] border-[1px] py-[4px] text-center`}>
                       {customer.status}
                     </div>
                   </TableCell>
@@ -147,28 +148,7 @@ export default function Product() {
             Showing data 1 to 8 of 256K entries
           </p>
           <div className="flex items-center gap-1">
-            <Button variant="outline" size="icon" disabled>
-              <ChevronLeft className="h-4 w-4" />
-            </Button>
-            <Button variant="default" size="sm" className="px-3">
-              1
-            </Button>
-            <Button variant="outline" size="sm" className="px-3">
-              2
-            </Button>
-            <Button variant="outline" size="sm" className="px-3">
-              3
-            </Button>
-            <Button variant="outline" size="sm" className="px-3">
-              4
-            </Button>
-            <span className="px-2">...</span>
-            <Button variant="outline" size="sm" className="px-3">
-              40
-            </Button>
-            <Button variant="outline" size="icon">
-              <ChevronRight className="h-4 w-4" />
-            </Button>
+            <TablePagination />
           </div>
         </div>
       </div>
