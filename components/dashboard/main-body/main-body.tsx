@@ -5,12 +5,12 @@ import Product from './product';
 
 const Mainbody = () => {
   return (
-    <div className="h-full w-full flex-1 overflow-y-auto bg-[#f9faff] py-[2.5rem] pl-[4.438rem] pr-[5.938rem]">
+    <div className="h-full w-full flex-1 overflow-y-auto bg-[#f9faff] p-4 md:py-[2.5rem] md:pl-[4.438rem] md:pr-[5.938rem]">
       <div className="mb-[2.438rem] flex items-center justify-between">
-        <h2 className="text-left text-[1.5rem] font-medium leading-[2.25rem] text-[#000000]">
+        <h2 className="text-left text-lg font-medium leading-[2.25rem] text-[#000000] md:text-[1.5rem]">
           Hello Evano 👋🏼,
         </h2>
-        <div className="flex h-[2.375rem] w-[13.5rem] items-center rounded-[12px] px-[0.5rem] py-[0.438rem] shadow-[0px_10px_60px_0px_#E2ECF980]">
+        <div className="hidden h-[2.375rem] w-[13.5rem] items-center rounded-[12px] px-[0.5rem] py-[0.438rem] shadow-[0px_10px_60px_0px_#E2ECF980] md:flex">
           <svg
             width="24"
             height="24"

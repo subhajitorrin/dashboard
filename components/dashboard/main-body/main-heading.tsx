@@ -26,13 +26,13 @@ const StatItem = ({
   changeLabel?: string;
   avatars?: number;
 }) => (
-  <div className="flex h-[5.25rem] flex-col items-start bg-white sm:flex-row sm:items-center">
+  <div className=" flex md:h-[5.25rem] items-center flex-col bg-white sm:flex-row sm:items-center md:items-start text-center md:text-left">
     {icon}
-    <div className="ml-[1.25rem]">
-      <p className="font-[400] leading-[1.313rem] tracking-[-0.01em] text-[#ACACAC]">
+    <div className="md:ml-[1.25rem] ">
+      <p className="text-xs font-[400] leading-[1.313rem] tracking-[-0.01em] text-[#ACACAC] md:text-[1rem]">
         {label}
       </p>
-      <p className="mb-[0.375rem] mt-[0.25rem] text-[2rem] font-semibold leading-[2rem] tracking-[-0.01em]">
+      <p className="md:mb-[0.375rem] mt-[0.25rem] md:text-[2rem] text-xl font-semibold leading-[2rem] tracking-[-0.01em]">
         {value}
       </p>
       {change && (
@@ -95,7 +95,7 @@ const StatItem = ({
         </div>
       )}
       {avatars && (
-        <div className="mt-2 flex -space-x-2">
+        <div className="md:mt-2 flex -space-x-2">
           {AVATARLIST.slice(0, avatars).map((avatar, i) => (
             <div
               key={i}
@@ -115,13 +115,13 @@ const StatItem = ({
 
 export default function StatsCard() {
   return (
-    <div className="flex justify-between rounded-[30px] bg-white pb-[2.063rem] pl-[3.125rem] pr-[5.5rem] pt-[1.938rem] shadow-[0px_10px_60px_0px_#E2ECF980]">
+    <div className="p-5 flex justify-between rounded-[30px] bg-white md:pb-[2.063rem] md:pl-[3.125rem] md:pr-[5.5rem] md:pt-[1.938rem] shadow-[0px_10px_60px_0px_#E2ECF980]">
       <StatItem
         icon={
           <Image
             src={earning1}
             alt="users"
-            className="h-[5.25rem] w-[5.25rem] object-cover"
+            className="h-[3rem] w-[3rem] object-cover md:h-[5.25rem] md:w-[5.25rem]"
           />
         }
         label="Total Customers"
@@ -135,7 +135,7 @@ export default function StatsCard() {
           <Image
             src={earning2}
             alt="users"
-            className="h-[5.25rem] w-[5.25rem] object-cover"
+            className="h-[3rem] w-[3rem] object-cover md:h-[5.25rem] md:w-[5.25rem]"
           />
         }
         label="Members"
@@ -149,7 +149,7 @@ export default function StatsCard() {
           <Image
             src={earning3}
             alt="users"
-            className="h-[5.25rem] w-[5.25rem] object-cover"
+            className="h-[3rem] w-[3rem] object-cover md:h-[5.25rem] md:w-[5.25rem]"
           />
         }
         label="Active Now"

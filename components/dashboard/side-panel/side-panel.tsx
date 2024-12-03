@@ -205,10 +205,10 @@ const ITEMS = [
 const Sidepanel = () => {
   const [active, setActive] = useState(2);
   return (
-    <div className="flex w-[19.125rem] flex-col justify-between shadow-[0px_10px_60px_0px_#E2ECF980]">
+    <div className="hidden w-[19.125rem] flex-col justify-between shadow-[0px_10px_60px_0px_#E2ECF980] md:flex">
       <div className="flex flex-col">
         {/* sidebar heading */}
-        <div className="ml-[1.75rem] mt-[2.25rem] flex w-fit items-center">
+        <div className="flex w-fit items-center md:ml-[1.75rem] md:mt-[2.25rem]">
           <svg
             className="mr-[0.5rem]"
             width="37"
