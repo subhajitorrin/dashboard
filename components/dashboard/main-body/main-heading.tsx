@@ -26,13 +26,13 @@ const StatItem = ({
   changeLabel?: string;
   avatars?: number;
 }) => (
-  <div className=" flex md:h-[5.25rem] items-center flex-col bg-white sm:flex-row sm:items-center md:items-start text-center md:text-left">
+  <div className=" flex flex-col items-center bg-white text-center sm:flex-row sm:items-center md:h-[5.25rem] md:items-start md:text-left">
     {icon}
     <div className="md:ml-[1.25rem] ">
       <p className="text-xs font-[400] leading-[1.313rem] tracking-[-0.01em] text-[#ACACAC] md:text-[1rem]">
         {label}
       </p>
-      <p className="md:mb-[0.375rem] mt-[0.25rem] md:text-[2rem] text-xl font-semibold leading-[2rem] tracking-[-0.01em]">
+      <p className="mt-[0.25rem] text-xl font-semibold leading-[2rem] tracking-[-0.01em] md:mb-[0.375rem] md:text-[2rem]">
         {value}
       </p>
       {change && (
@@ -95,7 +95,7 @@ const StatItem = ({
         </div>
       )}
       {avatars && (
-        <div className="md:mt-2 flex -space-x-2">
+        <div className="flex -space-x-2 md:mt-2">
           {AVATARLIST.slice(0, avatars).map((avatar, i) => (
             <div
               key={i}
@@ -115,7 +115,7 @@ const StatItem = ({
 
 export default function StatsCard() {
   return (
-    <div className="p-5 flex justify-between rounded-[30px] bg-white md:pb-[2.063rem] md:pl-[3.125rem] md:pr-[5.5rem] md:pt-[1.938rem] shadow-[0px_10px_60px_0px_#E2ECF980]">
+    <div className="flex justify-between rounded-[30px] bg-white p-5 shadow-[0px_10px_60px_0px_#E2ECF980] md:pb-[2.063rem] md:pl-[3.125rem] md:pr-[5.5rem] md:pt-[1.938rem]">
       <StatItem
         icon={
           <Image
