@@ -19,7 +19,7 @@ import {
 import AddCustomerModal from './add-customer';
 import { TablePagination } from './pagination';
 import useCustomerStore from '@/lib/store/useCustomerStore';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useTransition } from 'react';
 
 type CustomerInfo = {
   company: string;
@@ -47,6 +47,15 @@ export default function Product() {
     customerList: CustomerInfo[];
   };
   const [isLoading, setIsLoading] = useState(true);
+  const [filteredList, setFilteredList] = useState<CustomerInfo[]>([]);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  useEffect(() => {
+    const updatedList = customerList.filter((customer) => {
+      return customer.name.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+    setFilteredList(updatedList);
+  }, [customerList, searchTerm]);
 
   useEffect(() => {
     async function handleGetCustomers() {
@@ -98,6 +107,8 @@ export default function Product() {
               />
             </svg>
             <Input
+              onChange={(e) => setSearchTerm(e.target.value.toLowerCase())}
+              value={searchTerm}
               type="text"
               placeholder="Search"
               className="placeholder:text-custom-color ml-[0.5rem] h-[1.313rem] border-none bg-transparent pl-0"
@@ -140,7 +151,7 @@ export default function Product() {
               </TableRow>
             </TableHeader>
             <TableBody className="border-b">
-              {customerList.map((customer, index) => (
+              {filteredList.map((customer, index) => (
                 <TableRow key={index} className="border-b py-[1.25rem]">
                   <TableCell className="text-left text-[0.875rem] font-medium leading-[1.3125rem] tracking-[-0.01em] text-[#292D32]">
                     {customer.name}
