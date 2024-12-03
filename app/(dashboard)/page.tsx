@@ -4,7 +4,7 @@ import React from 'react';
 
 const Page = () => {
   return (
-    <div className="flex h-screen w-full">
+    <div className="flex min-h-screen w-full">
       <Sidepanel />
       <Mainbody />
     </div>

@@ -1,10 +1,11 @@
 import React from 'react';
 import Mainheading from './main-heading';
 import { Input } from '@/components/ui/input';
+import Product from './product';
 
 const Mainbody = () => {
   return (
-    <div className="h-full w-full flex-1 bg-[#f9faff] pl-[4.438rem] pr-[5.938rem] pt-[2.5rem]">
+    <div className="mb-[2.5rem] h-full w-full flex-1 bg-[#f9faff] pl-[4.438rem] pr-[5.938rem] pt-[2.5rem]">
       <div className="mb-[2.438rem] flex items-center justify-between">
         <h2 className="text-left text-[1.5rem] font-medium leading-[2.25rem] text-[#000000]">
           Hello Evano 👋🏼,
@@ -39,6 +40,7 @@ const Mainbody = () => {
         </div>
       </div>
       <Mainheading />
+      <Product />
     </div>
   );
 };
