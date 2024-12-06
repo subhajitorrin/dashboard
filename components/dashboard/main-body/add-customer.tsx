@@ -21,6 +21,8 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import useCustomerStore from '@/lib/store/useCustomerStore';
+import { z } from 'zod';
+import { customerSchema } from '@/lib/zodSchema';
 
 const COUNTRY_LIST = [
   'Australia',
@@ -71,11 +73,18 @@ export default function AddCustomerModal() {
       status,
     };
     try {
+      customerSchema.parse(customer);
       setIsLoading(true);
       await addCustomer(customer);
       setName('');
       setOpen(false);
-    } catch (error) {
+    } catch (error: any) {
+      if (error instanceof z.ZodError) {
+        const errorMessage = error.errors.map((err) => err.message).join(', ')
+        console.error("Validation error", errorMessage);
+      } else {
+        console.error("Unknown error", error.response.data.message || error.message);
+      }
     } finally {
       setIsLoading(false);
     }
