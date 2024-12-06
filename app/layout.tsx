@@ -1,6 +1,5 @@
 import '@/styles/globals.css';
 import { Metadata } from 'next';
-
 import { seoMetaData } from '@/config/seo-meta-data';
 import { Poppins } from 'next/font/google';
 
@@ -18,7 +17,10 @@ const poppins = Poppins({
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head />
+      <head>
+        <title>CRM DASHBOARD</title>
+        <meta name="description" content="crm dashboard" />
+      </head>
       <body className={poppins.className}>{children}</body>
     </html>
   );

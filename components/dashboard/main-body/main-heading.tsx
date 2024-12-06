@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import seperate from '@/public/dashboard-assets/seperate.png';
 import earning1 from '@/public/dashboard-assets/earning1.png';
 import earning2 from '@/public/dashboard-assets/earning2.png';
 import earning3 from '@/public/dashboard-assets/earning3.png';
@@ -8,6 +7,7 @@ import avatar2 from '@/public/dashboard-assets/avatar2.png';
 import avatar3 from '@/public/dashboard-assets/avatar3.png';
 import avatar4 from '@/public/dashboard-assets/avatar4.png';
 import avatar5 from '@/public/dashboard-assets/avatar5.png';
+import { Icon12, Icon13 } from '@/lib/icons/icons';
 
 const AVATARLIST = [avatar1, avatar2, avatar3, avatar4, avatar5];
 
@@ -38,54 +38,13 @@ const StatItem = ({
       {change && (
         <div className="flex items-center">
           {change.direction === 'up' ? (
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M10 17L10 5"
-                stroke="#00AC4F"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M4.16666 9.99999L10 4.16666L15.8333 9.99999"
-                stroke="#00AC4F"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <Icon12 />
           ) : (
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M10 3L10 15"
-                stroke="#D0004B"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M15.8333 10L10 15.8333L4.16668 10"
-                stroke="#D0004B"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <Icon13 />
           )}
           <span
-            className={`ml-[0.188rem] text-[0.75rem] font-[700] ${
-              change.direction === 'up' ? 'text-[#00AC4F]' : 'text-[#F04438]'
-            }`}>
+            className={`ml-[0.188rem] text-[0.75rem] font-[700] ${change.direction === 'up' ? 'text-[#00AC4F]' : 'text-[#F04438]'
+              }`}>
             {change.value}
           </span>
           &nbsp;
@@ -129,7 +88,7 @@ export default function StatsCard() {
         change={{ value: '16%', direction: 'up' }}
         changeLabel="this month"
       />
-      <Image src={seperate} alt="seperate" height={87} />
+      <Image src={"/dashboard-assets/seperate.png"} alt="seperate" height={87} width={1} />
       <StatItem
         icon={
           <Image
@@ -143,7 +102,7 @@ export default function StatsCard() {
         change={{ value: '1%', direction: 'down' }}
         changeLabel="this month"
       />
-      <Image src={seperate} alt="seperate" height={87} />
+      <Image src={"/dashboard-assets/seperate.png"} alt="seperate" height={87} width={1} />
       <StatItem
         icon={
           <Image

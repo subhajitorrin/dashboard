@@ -20,6 +20,7 @@ import AddCustomerModal from './add-customer';
 import { TablePagination } from './pagination';
 import useCustomerStore from '@/lib/store/useCustomerStore';
 import { useEffect, useState, useTransition } from 'react';
+import { Icon14 } from '@/lib/icons/icons';
 
 type CustomerInfo = {
   company: string;
@@ -97,27 +98,7 @@ export default function Product() {
           </div>
 
           <div className="flex h-[2.375rem] w-full items-center rounded-[12px] bg-[#F9FBFF] px-[0.5rem] py-[0.438rem] sm:w-[13.5rem]">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
-                stroke="#7E7E7E"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M21 21L16.65 16.65"
-                stroke="#7E7E7E"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <Icon14 />
             <Input
               onChange={(e) => setSearchTerm(e.target.value.toLowerCase())}
               value={searchTerm}
@@ -184,11 +165,10 @@ export default function Product() {
                   </TableCell>
                   <TableCell className="text-left text-[0.875rem] font-medium leading-[1.3125rem] tracking-[-0.01em]">
                     <div
-                      className={`${
-                        customer.status === 'active'
-                          ? ' border-[#00B087]  bg-[#16C09861] text-[#008767]'
-                          : ' border-[#DF0404] bg-[#FFC5C5] text-[#DF0404]'
-                      } h-[1.813rem] w-[5.25rem] rounded-[4px] border-[1px] py-[4px] text-center capitalize`}>
+                      className={`${customer.status === 'active'
+                        ? ' border-[#00B087]  bg-[#16C09861] text-[#008767]'
+                        : ' border-[#DF0404] bg-[#FFC5C5] text-[#DF0404]'
+                        } h-[1.813rem] w-[5.25rem] rounded-[4px] border-[1px] py-[4px] text-center capitalize`}>
                       {customer.status}
                     </div>
                   </TableCell>

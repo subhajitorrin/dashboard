@@ -2,6 +2,7 @@ import React from 'react';
 import Mainheading from './main-heading';
 import { Input } from '@/components/ui/input';
 import Product from './product';
+import { Icon11 } from '@/lib/icons/icons';
 
 const Mainbody = () => {
   return (
@@ -11,27 +12,7 @@ const Mainbody = () => {
           Hello Evano 👋🏼,
         </h2>
         <div className="hidden h-[2.375rem] w-[13.5rem] items-center rounded-[12px] px-[0.5rem] py-[0.438rem] shadow-[0px_10px_60px_0px_#E2ECF980] md:flex">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
-              stroke="#7E7E7E"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M21 21L16.65 16.65"
-              stroke="#7E7E7E"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          <Icon11 />
           <Input
             type="text"
             placeholder="Search"
