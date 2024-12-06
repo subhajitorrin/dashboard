@@ -1,11 +1,11 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: 'Next JS Starter Template',
+  name: 'CRM DASHBOARD',
   url: 'http://localhost:3000',
   ogImage: 'http://localhost:3000/og.jpg',
-  creator: 'Your name',
-  description: 'Description',
+  creator: 'orrin',
+  description: 'crm dashboard',
   mainNav: [
     {
       title: 'Home',
@@ -13,8 +13,6 @@ export const siteConfig = {
     },
   ],
   links: {
-    twitter: 'https://twitter.com/shadcn',
-    github: 'https://github.com/shadcn/ui',
-    docs: 'https://ui.shadcn.com',
+    github: 'https://github.com/subhajitorrin/dashboard.git',
   },
 };

@@ -1,11 +1,6 @@
-import { Manrope as FontMono, Inter as FontSans } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 
-export const fontSans = FontSans({
+export const poppins = Poppins({
   subsets: ['latin'],
-  variable: '--font-sans',
-});
-
-export const fontMono = FontMono({
-  subsets: ['latin'],
-  variable: '--font-display',
+  weight: ['400', '500', '600', '700'],
 });

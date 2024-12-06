@@ -21,17 +21,7 @@ import { TablePagination } from './pagination';
 import useCustomerStore from '@/lib/store/useCustomerStore';
 import { useEffect, useState, useTransition } from 'react';
 import { Icon14 } from '@/lib/icons/icons';
-
-type CustomerInfo = {
-  company: string;
-  country: string;
-  createdAt: string;
-  email: string;
-  id: number;
-  name: string;
-  phone: string;
-  status: 'active' | 'inactive';
-};
+import { CustomerInfo } from "@/types/index"
 
 const TABLE_HEAD = [
   'Customer Name',
